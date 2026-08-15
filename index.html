@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONCRETO — Apps de Cálculo Estructural</title>
+<meta name="description" content="Prediseño de Edificios, Calculadora de Elementos y Muro de Contención: apps Android de cálculo estructural para ingenieros y técnicos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand-group">
+      <img class="logo-slot" src="Fotos/logo.png" alt="Logo Concreto" onerror="this.classList.add('empty')">
+      <div class="brand">CON<span class="accent">CRETO</span></div>
+    </div>
+    <div class="navlinks">
+      <a href="#apps">Apps</a>
+      <a href="#prediseno">Prediseño</a>
+      <a href="#elementos">Elementos</a>
+      <a href="#muro">Muro</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a href="#contacto" class="btn btn-primary nav-cta">Solicitar licencia</a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="#apps">Apps</a>
+    <a href="#prediseno">Prediseño de Edificios</a>
+    <a href="#elementos">Calculadora de Elementos</a>
+    <a href="#muro">Muro de Contención</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Cálculo estructural, en obra</div>
+      <h1>El mismo criterio de tus <em>planos</em>, ahora en tu celular.</h1>
+      <p class="lede">Tres aplicaciones Android para predimensionar edificios, verificar elementos individuales y calcular muros de contención — con memoria de cálculo y diagramas acotados exportables en PDF, directamente desde el sitio de obra.</p>
+      <div class="cta-row">
+        <a href="#apps" class="btn btn-primary">Ver las 3 apps</a>
+        <a href="#contacto" class="btn btn-ghost">Hablar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="blueprint">
+      <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- retaining wall cross-section, signature motif -->
+        <rect x="0" y="0" width="360" height="300" fill="none"/>
+        <g stroke="#2E4B5C" stroke-width="0.6" opacity="0.5">
+          <line x1="0" y1="30" x2="360" y2="30"/><line x1="0" y1="60" x2="360" y2="60"/>
+          <line x1="0" y1="90" x2="360" y2="90"/><line x1="0" y1="120" x2="360" y2="120"/>
+          <line x1="30" y1="0" x2="30" y2="300"/><line x1="60" y1="0" x2="60" y2="300"/>
+        </g>
+        <polygon points="90,238 232,238 232,206 156,58 122,58 122,102 90,102" fill="#274357" stroke="#DCE7EA" stroke-width="1.4"/>
+        <line x1="30" y1="238" x2="330" y2="238" stroke="#7C97A2" stroke-width="1"/>
+        <g stroke="#4A6B7C" stroke-width="1">
+          <line x1="18" y1="248" x2="33" y2="233"/><line x1="33" y1="248" x2="48" y2="233"/>
+          <line x1="48" y1="248" x2="63" y2="233"/><line x1="63" y1="248" x2="78" y2="233"/>
+          <line x1="248" y1="248" x2="263" y2="233"/><line x1="263" y1="248" x2="278" y2="233"/>
+          <line x1="278" y1="248" x2="293" y2="233"/><line x1="293" y1="248" x2="308" y2="233"/>
+        </g>
+        <line x1="272" y1="58" x2="272" y2="238" stroke="#E0703A" stroke-width="1"/>
+        <line x1="266" y1="58" x2="278" y2="58" stroke="#E0703A" stroke-width="1"/>
+        <line x1="266" y1="238" x2="278" y2="238" stroke="#E0703A" stroke-width="1"/>
+        <text x="280" y="152" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="11">H=2.60</text>
+        <line x1="90" y1="254" x2="232" y2="254" stroke="#E0703A" stroke-width="1"/>
+        <line x1="90" y1="248" x2="90" y2="260" stroke="#E0703A" stroke-width="1"/>
+        <line x1="232" y1="248" x2="232" y2="260" stroke="#E0703A" stroke-width="1"/>
+        <text x="137" y="271" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="11">B=1.40</text>
+        <circle cx="156" cy="58" r="3" fill="#DCE7EA"/>
+        <text x="164" y="53" fill="#C9D8DE" font-family="JetBrains Mono, monospace" font-size="9">FSV 4.90</text>
+        <circle cx="232" cy="206" r="3" fill="#DCE7EA"/>
+        <text x="240" y="204" fill="#C9D8DE" font-family="JetBrains Mono, monospace" font-size="9">FSD 3.02</text>
+        <circle cx="122" cy="102" r="3" fill="#DCE7EA"/>
+        <text x="16" y="98" fill="#C9D8DE" font-family="JetBrains Mono, monospace" font-size="9">σ1=0.91</text>
+      </svg>
+      <div class="cap"><span>MURO_CONTENCION.dwg</span><span>ESC 1:50</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">01 — LAS APPS</div>
+      <h2>Una herramienta para cada etapa del cálculo</h2>
+      <p>Desarrolladas junto a ingenieros estructurales bolivianos y verificadas contra las normas ACI 318 / CBH.</p>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-art blue">
+          <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="16" width="30" height="58" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <rect x="66" y="30" width="26" height="44" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <line x1="14" y1="16" x2="92" y2="16" stroke="#4A6B7C" stroke-width="1"/>
+            <line x1="8" y1="16" x2="8" y2="74" stroke="#E0703A" stroke-width="0.9"/>
+            <line x1="4" y1="16" x2="12" y2="16" stroke="#E0703A" stroke-width="0.9"/>
+            <line x1="4" y1="74" x2="12" y2="74" stroke="#E0703A" stroke-width="0.9"/>
+            <g stroke="#33505E" stroke-width="0.5" opacity="0.7">
+              <line x1="0" y1="80" x2="120" y2="80"/><line x1="0" y1="80" x2="10" y2="88"/>
+              <line x1="20" y1="80" x2="30" y2="88"/><line x1="40" y1="80" x2="50" y2="88"/>
+              <line x1="60" y1="80" x2="70" y2="88"/><line x1="80" y1="80" x2="90" y2="88"/>
+              <line x1="100" y1="80" x2="110" y2="88"/>
+            </g>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3>Prediseño de Edificios</h3>
+          <div class="desc">Predimensionamiento de losa reticular, columnas, zapatas y radier con capitel invertido. Cargas por rango de piso.</div>
+          <a href="#prediseno" class="go">Ver detalle <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-art green">
+          <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="14" width="80" height="14" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <rect x="26" y="34" width="14" height="42" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <rect x="78" y="34" width="14" height="42" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <line x1="20" y1="10" x2="100" y2="10" stroke="#E0703A" stroke-width="0.9"/>
+            <line x1="20" y1="7" x2="20" y2="13" stroke="#E0703A" stroke-width="0.9"/>
+            <line x1="100" y1="7" x2="100" y2="13" stroke="#E0703A" stroke-width="0.9"/>
+            <text x="46" y="6" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="7">bw</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3>Calculadora de Elementos</h3>
+          <div class="desc">Diseño individual de viga, columna, losa casetonada y muro de corte, con diagramas dibujados a escala y cotas dinámicas.</div>
+          <a href="#elementos" class="go">Ver detalle <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-art orange">
+          <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="30,76 76,76 76,62 52,20 40,20 40,36 30,36" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <line x1="10" y1="76" x2="110" y2="76" stroke="#4A6B7C" stroke-width="1"/>
+            <g stroke="#33505E" stroke-width="0.6" opacity="0.8">
+              <line x1="6" y1="80" x2="16" y2="72"/><line x1="16" y1="80" x2="26" y2="72"/>
+              <line x1="80" y1="80" x2="90" y2="72"/><line x1="90" y1="80" x2="100" y2="72"/>
+            </g>
+            <line x1="90" y1="20" x2="90" y2="76" stroke="#E0703A" stroke-width="0.8"/>
+            <text x="93" y="50" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="7">H</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3>Muro de Contención</h3>
+          <div class="desc">Muro de hormigón ciclópeo: empuje, volteo, deslizamiento y tensiones sobre el suelo, con memoria de cálculo lista para presentar.</div>
+          <a href="#muro" class="go">Ver detalle <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="prediseno" class="app-detail app-detail--blue">
+  <div class="app-hero app-hero--blue">
+    <div class="app-hero-inner">
+      <span class="app-status">PREDIMENSIONAMIENTO</span>
+      <h2>Prediseño <span class="hl">de Edificios</span></h2>
+      <p class="app-hero-sub">Pensada para la primera etapa del diseño: llevar cargas de piso a piso y obtener secciones preliminares de losa, columna y zapata en minutos, con la misma metodología con la que se validó cada fórmula contra planillas de cálculo de referencia.</p>
+    </div>
+  </div>
+  <div class="wrap app-body">
+    <div class="app-grid">
+      <ul class="feature-list">
+        <li><span class="dim">01</span><div><strong>Cargas por rango de piso</strong><span>Define tramos de niveles con su propia carga, en vez de repetir el dato piso por piso.</span></div></li>
+        <li><span class="dim">02</span><div><strong>Losa reticular, columna y zapata</strong><span>Predimensionamiento siguiendo ACI 318 / CBH, verificado línea por línea contra la planilla de cálculo original.</span></div></li>
+        <li><span class="dim">03</span><div><strong>Radier con capitel invertido</strong><span>Verificación de punzonamiento corregida y validada para no dejar pasar resultados por error.</span></div></li>
+        <li><span class="dim">04</span><div><strong>Diagrama de losa casetonada integrado</strong><span>El plano acotado forma parte del flujo de cálculo, no es un anexo aparte.</span></div></li>
+      </ul>
+      <div class="app-visual">
+        <div class="diagram-panel">
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#DCE7EA" stroke-width="1">
+              <rect x="20" y="20" width="80" height="80" fill="none"/>
+              <rect x="120" y="20" width="80" height="80" fill="none"/>
+              <rect x="220" y="20" width="80" height="80" fill="none"/>
+              <rect x="20" y="120" width="80" height="60" fill="none"/>
+              <rect x="120" y="120" width="80" height="60" fill="none"/>
+              <rect x="220" y="120" width="80" height="60" fill="none"/>
+            </g>
+            <g stroke="#33505E" stroke-width="0.6" opacity="0.6">
+              <line x1="60" y1="20" x2="60" y2="100"/><line x1="160" y1="20" x2="160" y2="100"/>
+              <line x1="260" y1="20" x2="260" y2="100"/>
+            </g>
+            <circle cx="20" cy="20" r="3" fill="#E0703A"/><circle cx="100" cy="20" r="3" fill="#E0703A"/>
+            <circle cx="220" cy="20" r="3" fill="#E0703A"/><circle cx="300" cy="20" r="3" fill="#E0703A"/>
+            <circle cx="20" cy="180" r="3" fill="#E0703A"/><circle cx="300" cy="180" r="3" fill="#E0703A"/>
+            <text x="24" y="12" fill="#9FB6C0" font-family="JetBrains Mono, monospace" font-size="9">NIVEL 3</text>
+            <text x="24" y="112" fill="#9FB6C0" font-family="JetBrains Mono, monospace" font-size="9">NIVEL 2</text>
+          </svg>
+          <div class="cap"><span>PLANTA_TIPO.dwg</span><span>CARGA POR TRAMO</span></div>
+        </div>
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <div class="label">VIDEO: CÓMO USAR PREDISEÑO DE EDIFICIOS</div>
+        </div>
+        <div class="app-cta">
+          <a href="#contacto" class="btn btn-primary">Pedir licencia de Prediseño</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="elementos" class="app-detail app-detail--green">
+  <div class="app-hero app-hero--green">
+    <div class="app-hero-inner">
+      <span class="app-status">DISEÑO POR ELEMENTO</span>
+      <h2>Calculadora <span class="hl">de Elementos</span></h2>
+      <p class="app-hero-sub">Cuando ya tienes la sección que quieres verificar, esta app te lleva de los datos al plano acotado: viga, columna, losa casetonada o muro de corte, cada uno con su propio diagrama a escala.</p>
+    </div>
+  </div>
+  <div class="wrap app-body">
+    <div class="app-grid reverse">
+      <ul class="feature-list">
+        <li><span class="dim">01</span><div><strong>4 tipos de elemento</strong><span>Viga, columna, losa casetonada y muro de corte, cada uno con su propia calculadora y diagrama.</span></div></li>
+        <li><span class="dim">02</span><div><strong>Diagramas a escala real</strong><span>Los dibujos no se deforman: la escala se ajusta automáticamente a las dimensiones que ingresas.</span></div></li>
+        <li><span class="dim">03</span><div><strong>Cotas dinámicas</strong><span>Las medidas del plano se actualizan solas según el resultado del cálculo, sin que tengas que redibujar nada.</span></div></li>
+        <li><span class="dim">04</span><div><strong>Memoria de cálculo en PDF</strong><span>Exporta un reporte de las 4 secciones, listo para compartir por WhatsApp o guardar en el celular.</span></div></li>
+      </ul>
+      <div class="app-visual">
+        <div class="diagram-panel">
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="30" width="240" height="34" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <g stroke="#DCE7EA" stroke-width="1">
+              <line x1="70" y1="30" x2="70" y2="64"/><line x1="70" y1="64" x2="60" y2="80"/>
+              <line x1="70" y1="64" x2="80" y2="80"/>
+              <line x1="250" y1="30" x2="250" y2="64"/><line x1="250" y1="64" x2="240" y2="80"/>
+              <line x1="250" y1="64" x2="260" y2="80"/>
+            </g>
+            <line x1="40" y1="16" x2="280" y2="16" stroke="#E0703A" stroke-width="1"/>
+            <line x1="40" y1="10" x2="40" y2="22" stroke="#E0703A" stroke-width="1"/>
+            <line x1="280" y1="10" x2="280" y2="22" stroke="#E0703A" stroke-width="1"/>
+            <text x="145" y="10" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="10">L=4.20</text>
+            <line x1="20" y1="30" x2="20" y2="64" stroke="#E0703A" stroke-width="1"/>
+            <text x="4" y="50" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="10">h</text>
+            <g font-family="JetBrains Mono, monospace" font-size="9" fill="#9FB6C0">
+              <text x="150" y="120">SECCIÓN VIGA</text>
+              <rect x="150" y="130" width="40" height="50" fill="none" stroke="#DCE7EA" stroke-width="1"/>
+              <circle cx="158" cy="172" r="2" fill="#E0703A"/><circle cx="182" cy="172" r="2" fill="#E0703A"/>
+              <circle cx="158" cy="138" r="2" fill="#E0703A"/><circle cx="182" cy="138" r="2" fill="#E0703A"/>
+            </g>
+          </svg>
+          <div class="cap"><span>VIGA_V1.dwg</span><span>ESC 1:25</span></div>
+        </div>
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <div class="label">VIDEO: CÓMO USAR CALCULADORA DE ELEMENTOS</div>
+        </div>
+        <div class="app-cta">
+          <a href="#contacto" class="btn btn-primary">Pedir licencia</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="muro" class="app-detail app-detail--orange">
+  <div class="app-hero app-hero--orange">
+    <div class="app-hero-inner">
+      <span class="app-status">HORMIGÓN CICLÓPEO</span>
+      <h2>Muro <span class="hl">de Contención</span></h2>
+      <p class="app-hero-sub">Calcula y verifica un muro de contención completo: empuje de tierra, peso propio, volteo, deslizamiento y tensiones sobre el suelo, con los mismos factores de seguridad que verías en un informe de gabinete.</p>
+    </div>
+  </div>
+  <div class="wrap app-body">
+    <div class="app-grid">
+      <ul class="feature-list">
+        <li><span class="dim">01</span><div><strong>7 módulos de cálculo</strong><span>Geometría, empuje, pesos, volteo, deslizamiento, tensiones y costos, en un solo flujo.</span></div></li>
+        <li><span class="dim">02</span><div><strong>Considera nivel freático</strong><span>El cálculo cambia correctamente si hay presencia de agua en el terreno.</span></div></li>
+        <li><span class="dim">03</span><div><strong>Diagrama con tus propias cotas</strong><span>El dibujo se genera a partir de tus parámetros de geometría (A–H), no es una imagen genérica.</span></div></li>
+        <li><span class="dim">04</span><div><strong>Memoria de cálculo profesional</strong><span>Reporte de 9 secciones en PDF, tamaño carta, listo para presentar a un cliente o supervisor de obra.</span></div></li>
+      </ul>
+      <div class="app-visual">
+        <div class="diagram-panel">
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="90,170 220,170 220,140 150,30 120,30 120,64 90,64" fill="none" stroke="#DCE7EA" stroke-width="1.3"/>
+            <line x1="30" y1="170" x2="290" y2="170" stroke="#4A6B7C" stroke-width="1"/>
+            <g stroke="#33505E" stroke-width="0.6" opacity="0.7">
+              <line x1="20" y1="180" x2="35" y2="165"/><line x1="35" y1="180" x2="50" y2="165"/>
+              <line x1="50" y1="180" x2="65" y2="165"/><line x1="230" y1="180" x2="245" y2="165"/>
+              <line x1="245" y1="180" x2="260" y2="165"/><line x1="260" y1="180" x2="275" y2="165"/>
+            </g>
+            <path d="M120 64 L90 64 L90 170" fill="none" stroke="#6C8A98" stroke-width="0.8" stroke-dasharray="3 2"/>
+            <polygon points="60,64 90,64 90,170 60,170" fill="none" stroke="#E0703A" stroke-width="0.7" opacity="0.7"/>
+            <line x1="255" y1="30" x2="255" y2="170" stroke="#E0703A" stroke-width="1"/>
+            <line x1="249" y1="30" x2="261" y2="30" stroke="#E0703A" stroke-width="1"/>
+            <line x1="249" y1="170" x2="261" y2="170" stroke="#E0703A" stroke-width="1"/>
+            <text x="263" y="102" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="10">H</text>
+            <line x1="90" y1="184" x2="220" y2="184" stroke="#E0703A" stroke-width="1"/>
+            <text x="145" y="198" fill="#E0703A" font-family="JetBrains Mono, monospace" font-size="10">B</text>
+          </svg>
+          <div class="cap"><span>MURO_TIPO.dwg</span><span>EMPUJE ACTIVO</span></div>
+        </div>
+        <div class="video-slot">
+          <div class="play">▶</div>
+          <div class="label">VIDEO: CÓMO USAR MURO DE CONTENCIÓN</div>
+        </div>
+        <div class="app-cta">
+          <a href="#contacto" class="btn btn-primary">Pedir licencia del Muro</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">02 — RESPALDO TÉCNICO</div>
+      <h2>No son apps genéricas de calculadora</h2>
+      <p>Cada fórmula fue revisada celda por celda contra planillas de cálculo y firmada por ingenieros estructurales que las usan en obra.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="lbl">apps en producción</div></div>
+      <div class="stat"><div class="num">7</div><div class="lbl">módulos de cálculo en el muro</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">elementos verificables</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">verificado contra planillas de referencia</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="contact-box">
+      <div class="section-num" style="color:#E0703A;">03 — ACTIVAR LICENCIA</div>
+      <h2>Cada app se activa por dispositivo, por WhatsApp</h2>
+      <p>No hay pasarela de pago automática: la licencia se activa manualmente para tu celular, así que el primer paso siempre es escribirnos.</p>
+      <div class="steps">
+        <div class="step"><span class="dim">01</span> Descarga la app que necesitas e instálala en tu celular.</div>
+        <div class="step"><span class="dim">02</span> Escríbenos por WhatsApp con el nombre de la app y tu ID de dispositivo (la app te lo muestra en pantalla).</div>
+        <div class="step"><span class="dim">03</span> Activamos tu licencia y quedas habilitado para calcular sin límite.</div>
+      </div>
+      <a href="https://wa.me/59173447992" class="btn btn-primary" style="background:var(--orange);border-color:var(--orange);">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>CONCRETO — Apps de cálculo estructural, hechas en Bolivia.</div>
+    <div>© 2026 · Prediseño de Edificios · Calculadora de Elementos · Muro de Contención</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
