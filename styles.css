@@ -167,6 +167,28 @@ nav{
   border-top:1px solid #1E3E66;padding-top:10px;
 }
 
+/* -------------------------- TECHNICAL AUTHORITY ------------------------- */
+.founder{background:linear-gradient(180deg,var(--bg-panel) 0%,var(--bg) 100%);}
+.founder-grid{display:grid;grid-template-columns:minmax(260px,.78fr) minmax(0,1.1fr);gap:74px;align-items:center;}
+.founder-photo{position:relative;max-width:390px;justify-self:start;background:var(--bg-panel-2);border:1px solid var(--line);box-shadow:var(--shadow-hard);overflow:hidden;}
+.founder-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(4,8,12,.84));pointer-events:none;}
+.founder-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 36%;filter:saturate(.86) contrast(1.06);}
+.founder-photo figcaption{position:absolute;z-index:1;left:16px;right:16px;bottom:13px;display:flex;justify-content:space-between;gap:10px;color:#fff;font:500 .6rem 'JetBrains Mono',monospace;letter-spacing:.06em;}
+.founder-copy{max-width:610px;}
+.founder-copy h2{font-size:2.25rem;line-height:1.08;letter-spacing:-.02em;margin-bottom:17px;}
+.founder-copy h2 span{color:var(--blue);}
+.founder-copy>p{max-width:55ch;color:var(--ink-soft);font-size:1rem;}
+.founder-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:30px;}
+.founder-points div{border-top:1px solid var(--line);padding-top:12px;}
+.founder-points strong,.founder-points span{display:block;}
+.founder-points strong{font:600 .77rem 'JetBrains Mono',monospace;color:var(--ink);letter-spacing:.035em;}
+.founder-points span{margin-top:4px;color:var(--ink-soft);font-size:.78rem;line-height:1.42;}
+.founder-cta{display:inline-flex;margin-top:26px;}
+@media(max-width:760px){
+  .founder-grid{grid-template-columns:1fr;gap:32px;}
+  .founder-photo{max-width:520px;width:100%;}
+}
+
 /* ---------------------------------- SECTION HEADS ---------------------------------- */
 .section-head{margin-bottom:48px;max-width:62ch;}
 .section-num{font-family:'JetBrains Mono',monospace;color:var(--blue);font-size:0.78rem;letter-spacing:0.09em;margin-bottom:10px;}
@@ -485,6 +507,11 @@ footer{border-top:1px solid var(--line);padding:34px 0;font-size:0.85rem;color:v
   .hero{padding:48px 0 40px;}
   .hero h1{font-size:2rem;}
   .hero p.lede{font-size:0.98rem;}
+  .founder-grid{grid-template-columns:1fr;gap:28px;}
+  .founder-photo{max-width:none;width:100%;}
+  .founder-photo img{aspect-ratio:16/11;object-position:center 33%;}
+  .founder-copy h2{font-size:1.75rem;}
+  .founder-points{grid-template-columns:1fr;gap:12px;margin-top:24px;}
   .cta-row .btn{flex:1 1 auto;justify-content:center;}
   section{padding:56px 0;}
   .app-hero{padding:44px 20px;}
