@@ -53,6 +53,25 @@
     const message = `Hola, me interesa: ${product}. Quisiera recibir información sobre la licencia y el proceso de activación.`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
+
+  const escapeHtml = (value = '') => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+  const safeUrl = (value = '') => {
+    try { const url = new URL(value, window.location.origin); return ['http:', 'https:'].includes(url.protocol) ? url.href : '#'; } catch { return '#'; }
+  };
+  const renderManagedContent = async () => {
+    try {
+      const response = await fetch('/api/content', { cache: 'no-store' });
+      if (!response.ok) return;
+      const content = await response.json();
+      const resources = document.querySelector('#managed-resources');
+      const videos = document.querySelector('#managed-videos');
+      const offers = document.querySelector('#offers');
+      if (resources) resources.innerHTML = (content.resources || []).filter(item => item.published).map(item => `<article class="resource-card"><div class="resource-topline"><div class="resource-icon resource-icon--blue">${escapeHtml(item.kind || 'PDF')}</div></div><div class="resource-copy"><span class="resource-type">${escapeHtml(item.category || 'RECURSO')}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></div><div class="document-actions"><a class="resource-link" href="${safeUrl(item.url)}" target="_blank" rel="noopener">Ver recurso <span>↗</span></a></div></article>`).join('');
+      if (videos) videos.innerHTML = (content.videos || []).filter(item => item.published).map(item => `<a class="video-card managed-video" href="${safeUrl(item.url)}" target="_blank" rel="noopener"><span class="video-thumb">${item.thumbnail ? `<img src="${safeUrl(item.thumbnail)}" alt="">` : ''}<span class="video-play">▶</span><span class="video-platform">VIDEO</span></span><span class="video-card-copy"><span class="resource-type">${escapeHtml(item.category || 'CONCRETO')}</span><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.description)}</p></span></a>`).join('');
+      if (offers) offers.innerHTML = (content.offers || []).filter(item => item.published).map(item => `<article class="offer-card"><span class="offer-badge">OFERTA ACTIVA</span><div><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></div><a class="btn btn-primary" href="${safeUrl(item.url || 'https://wa.me/59173447992')}" target="_blank" rel="noopener">${escapeHtml(item.button || 'Solicitar oferta')}</a></article>`).join('');
+    } catch (_) { /* La página principal sigue funcionando si el CMS aún no fue configurado. */ }
+  };
+  renderManagedContent();
   const setWhatsAppLink = (element, product) => { element.href = makeWhatsAppUrl(product || 'Consulta general'); };
 
   document.querySelectorAll('[data-whatsapp-product]').forEach((link) => setWhatsAppLink(link, link.dataset.whatsappProduct));
