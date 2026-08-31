@@ -7,10 +7,15 @@ const validKey = (request) => {
   return Array.isArray(keys) && keys.length > 0 && keys.length <= 4 && keys.includes(key);
 };
 const readContent = async () => {
-  const { blobs } = await list({ prefix: 'concreto/content.json', limit: 1 });
-  if (!blobs[0]) return EMPTY;
-  const response = await fetch(blobs[0].url, { cache: 'no-store' });
-  return response.ok ? { ...EMPTY, ...(await response.json()) } : EMPTY;
+  try {
+    const { blobs } = await list({ prefix: 'concreto/content.json', limit: 1 });
+    if (!blobs[0]) return EMPTY;
+    const response = await fetch(blobs[0].url, { cache: 'no-store' });
+    return response.ok ? { ...EMPTY, ...(await response.json()) } : EMPTY;
+  } catch (error) {
+    console.error('Error al leer Blob:', error);
+    return EMPTY;
+  }
 };
 
 export default async function handler(request, response) {
