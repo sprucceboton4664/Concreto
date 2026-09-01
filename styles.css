@@ -183,7 +183,11 @@ nav{
 .founder-points strong,.founder-points span{display:block;}
 .founder-points strong{font:600 .77rem 'JetBrains Mono',monospace;color:var(--ink);letter-spacing:.035em;}
 .founder-points span{margin-top:4px;color:var(--ink-soft);font-size:.78rem;line-height:1.42;}
-.founder-cta{display:inline-flex;margin-top:26px;}
+.founder-cta{display:inline-flex;margin-top:24px;}
+.advisor-contact{display:grid;gap:8px;margin-top:26px;padding:17px 18px;border-left:2px solid var(--blue);background:var(--bg-panel-2);}
+.advisor-contact strong{font:600 .93rem 'Space Grotesk',sans-serif;color:var(--ink);}
+.advisor-contact a{width:max-content;max-width:100%;color:var(--ink-soft);font:500 .82rem 'JetBrains Mono',monospace;overflow-wrap:anywhere;transition:color .15s ease;}
+.advisor-contact a:hover{color:var(--blue);}
 @media(max-width:760px){
   .founder-grid{grid-template-columns:1fr;gap:32px;}
   .founder-photo{max-width:520px;width:100%;}
