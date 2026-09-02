@@ -8,10 +8,32 @@ const count = document.querySelector('#count');
 const template = document.querySelector('#item-template');
 let key = sessionStorage.getItem('concreto-admin-key') || '';
 let content = { resources: [], videos: [], offers: [] };
+let editing = null;
 const headers = () => ({ 'Content-Type': 'application/json', 'x-admin-key': key });
 const showTab = (name) => {
   document.querySelectorAll('.tabs button').forEach(button => button.classList.toggle('active', button.dataset.tab === name));
   document.querySelectorAll('.form-panel').forEach(panel => panel.hidden = panel.id !== `${name}-form`);
+};
+const resetEditor = (kind) => {
+  editing = null;
+  const form = document.querySelector(`form[data-kind="${kind}"]`);
+  form.reset();
+  form.querySelector('button[type="submit"], button:not(.quiet)').textContent = kind === 'resources' ? 'Publicar recurso' : kind === 'videos' ? 'Publicar vídeo' : 'Publicar oferta';
+  form.querySelector('.cancel-edit').hidden = true;
+};
+const openEditor = (kind, index) => {
+  const item = content[kind][index];
+  editing = { kind, index };
+  showTab(kind);
+  const form = document.querySelector(`form[data-kind="${kind}"]`);
+  form.elements.title.value = item.title || '';
+  form.elements.description.value = item.description || '';
+  if (form.elements.category) form.elements.category.value = item.category || '';
+  if (form.elements.button) form.elements.button.value = item.button || '';
+  form.elements.url.value = item.url || '';
+  form.querySelector('button[type="submit"], button:not(.quiet)').textContent = 'Guardar cambios';
+  form.querySelector('.cancel-edit').hidden = false;
+  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 const render = () => {
   items.innerHTML = '';
@@ -23,7 +45,13 @@ const render = () => {
     node.querySelector('.tag').textContent = kind === 'resources' ? 'RECURSO' : kind === 'videos' ? 'VÍDEO' : 'OFERTA';
     node.querySelector('h3').textContent = item.title;
     node.querySelector('p').textContent = item.description;
-    node.querySelector('.delete').addEventListener('click', async () => { content[kind].splice(index, 1); await save(); });
+    const link = node.querySelector('.item-link');
+    if (item.url) link.href = item.url; else link.hidden = true;
+    node.querySelector('.edit').addEventListener('click', () => openEditor(kind, index));
+    node.querySelector('.delete').addEventListener('click', async () => {
+      if (!window.confirm(`¿Eliminar “${item.title}”? Esta acción no se puede deshacer.`)) return;
+      content[kind].splice(index, 1); await save();
+    });
     items.append(node);
   });
 };
@@ -46,6 +74,7 @@ document.querySelector('#login-form').addEventListener('submit', async (event) =
 });
 document.querySelector('#logout').addEventListener('click', () => { sessionStorage.removeItem('concreto-admin-key'); location.reload(); });
 document.querySelectorAll('.tabs button').forEach(button => button.addEventListener('click', () => showTab(button.dataset.tab)));
+document.querySelectorAll('.cancel-edit').forEach(button => button.addEventListener('click', () => resetEditor(button.closest('form').dataset.kind)));
 document.querySelectorAll('.form-panel form').forEach(form => form.addEventListener('submit', async (event) => {
   event.preventDefault(); const button = form.querySelector('button'); button.disabled = true; button.textContent = 'Publicando…';
   try {
@@ -53,10 +82,11 @@ document.querySelectorAll('.form-panel form').forEach(form => form.addEventListe
     if (file && file.size) { const blob = await upload(`concreto/${Date.now()}-${file.name}`, file, { access: 'public', handleUploadUrl: '/api/upload', clientPayload: key }); fileUrl = blob.url; }
     const externalUrl = String(data.get('url') || '').trim();
     const uploadedVideo = kind === 'videos' && file && file.size && file.type.startsWith('video/');
-    const url = uploadedVideo ? fileUrl : externalUrl;
+    const url = uploadedVideo ? fileUrl : (externalUrl || (editing?.kind === kind ? content[kind][editing.index].url : ''));
     if ((kind === 'resources' || kind === 'videos') && !url) throw new Error('Selecciona un archivo o pega un enlace.');
-    content[kind].unshift({ title: String(data.get('title')).trim(), description: String(data.get('description')).trim(), category: String(data.get('category') || '').trim(), button: String(data.get('button') || '').trim(), url, thumbnail: kind === 'videos' && !uploadedVideo ? fileUrl : '', kind: kind === 'resources' ? (fileUrl ? 'PDF' : 'LINK') : '', published: true });
-    await save(); form.reset();
+    const item = { title: String(data.get('title')).trim(), description: String(data.get('description')).trim(), category: String(data.get('category') || '').trim(), button: String(data.get('button') || '').trim(), url, thumbnail: kind === 'videos' && !uploadedVideo ? (fileUrl || (editing?.kind === kind ? content[kind][editing.index].thumbnail : '')) : '', kind: kind === 'resources' ? (fileUrl ? 'PDF' : 'LINK') : '', published: true };
+    if (editing?.kind === kind) content[kind][editing.index] = item; else content[kind].unshift(item);
+    await save(); resetEditor(kind);
   } catch (reason) { alert(reason.message || 'No se pudo publicar el contenido.'); }
   finally { button.disabled = false; button.textContent = kind === 'resources' ? 'Publicar recurso' : kind === 'videos' ? 'Publicar vídeo' : 'Publicar oferta'; }
 }));
